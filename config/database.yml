@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  encoding: unicode
+  timeout: 5000
+
+development:
+  <<: *default
+  database: social_images_development
+
+test:
+  <<: *default
+  database: social_images_test
+
+production:
+  <<: *default
+  database: social_images_production
