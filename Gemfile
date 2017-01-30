@@ -15,6 +15,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'haml', '~> 4.0.7'
+gem 'rmagick'
+gem 'devise'
 
 group :development, :test do
   gem 'jazz_fingers'

@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %meta{:charset => "UTF-8"}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
+    %title Motivational Quotes Optimized for Your Social Media Channels
+    = stylesheet_link_tag 'application', media: 'all',
+      'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %header
+      = render "layouts/header/navbar"
+      = render "layouts/header/messages"
+    %main{role: "main"}
+      .container
+        = yield
