@@ -11,6 +11,8 @@ gem 'font-awesome-rails'
 gem 'bootstrap', '~> 4.0.0.alpha5'
 gem 'bourbon'
 gem "administrate", "~> 0.3.0"
+gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk', '~> 2.3.0'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
