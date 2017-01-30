@@ -6,10 +6,11 @@ gem 'rails', '4.2.7'
 gem 'pg'
 gem 'therubyracer', platforms: :ruby
 
-# Use SCSS for stylesheets
-gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '~> 5.0'
 gem 'font-awesome-rails'
+gem 'bootstrap', '~> 4.0.0.alpha5'
+gem 'bourbon'
+gem "administrate", "~> 0.3.0"
 
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
