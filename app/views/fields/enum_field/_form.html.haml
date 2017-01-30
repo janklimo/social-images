@@ -1,0 +1,6 @@
+.field-unit__label
+  = f.label field.attribute
+.field-unit__field
+  = f.select(field.attribute,
+    options_for_select(f.object.class.public_send(field.attribute.to_s.pluralize).map { |k, v| [k.humanize, k] },
+    f.object.public_send(field.attribute.to_s)), include_blank: false)
