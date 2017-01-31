@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+
+  resources :orders, param: :token, only: :show
+
   root to: "welcome#index"
 end

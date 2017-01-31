@@ -4,16 +4,19 @@ class OrderDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     status: EnumField,
+    token: Field::String
   }
 
   COLLECTION_ATTRIBUTES = [
     :id,
     :status,
+    :token
   ]
 
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :status,
+    :token
   ]
 
   FORM_ATTRIBUTES = [

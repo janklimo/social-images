@@ -135,6 +135,8 @@ GEM
       multi_json (~> 1.8)
     haml (4.0.7)
       tilt
+    has_secure_token (1.0.0)
+      activerecord (>= 3.0)
     hirb (0.7.3)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
@@ -334,6 +336,7 @@ DEPENDENCIES
   guard
   guard-livereload
   haml (~> 4.0.7)
+  has_secure_token
   jazz_fingers
   jquery-rails
   letter_opener
