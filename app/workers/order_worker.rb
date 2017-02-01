@@ -28,16 +28,18 @@ class OrderWorker
 
     file = Paperclip::Tempfile.new(["#{order_id}#{SecureRandom.base64}", ".jpg"])
     thumb.write(file.path)
+    file.close
 
-    # cleanup
-    thumb.destroy!
-    image.destroy!
-    logo.destroy!
-
-    result = Result.create(image: file)
-    album.results << result
+    begin
+      result = Result.create(image: file)
+      album.results << result
+    ensure
+      # cleanup
+      thumb.destroy!
+      image.destroy!
+      logo.destroy!
+    end
 
     order.update(status: :completed)
-
   end
 end
