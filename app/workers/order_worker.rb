@@ -34,6 +34,7 @@ class OrderWorker
 
     # cleanup
     thumb.destroy!
+    caption.destroy!
     image.destroy!
     logo.destroy!
 
