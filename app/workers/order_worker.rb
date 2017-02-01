@@ -21,19 +21,17 @@ class OrderWorker
       self.fill = 'white'
     end.first
 
-    thumb = image
-      .resize_to_fill!(1200, 630)
-      .composite!(caption, CenterGravity, OverCompositeOp)
-      .composite!(logo.resize_to_fit!(300, 300), SouthEastGravity, 20, 20, OverCompositeOp)
+    image.resize_to_fill!(1200, 630)
+    image.composite!(caption, CenterGravity, OverCompositeOp)
+    image.composite!(logo.resize_to_fit!(300, 300), SouthEastGravity, 20, 20, OverCompositeOp)
 
     file = Paperclip::Tempfile.new(["#{order_id}#{rand(36**20).to_s(36)}", ".jpg"])
-    thumb.write(file.path)
+    image.write(file.path)
 
     result = Result.create(image: file)
     album.results << result
 
     # cleanup
-    thumb.destroy!
     caption.destroy!
     image.destroy!
     logo.destroy!
