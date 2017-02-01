@@ -35,6 +35,7 @@ class OrderWorker
     caption.destroy!
     image.destroy!
     logo.destroy!
+    GC.start
 
     order.update(status: :completed)
   end
