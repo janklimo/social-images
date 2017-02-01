@@ -26,18 +26,16 @@ class OrderWorker
       .composite(caption, CenterGravity, OverCompositeOp)
       .composite(logo.resize_to_fit(300, 300), SouthEastGravity, 20, 20, OverCompositeOp)
 
-    begin
-      file = Paperclip::Tempfile.new(["#{order_id}#{SecureRandom.base64}", ".jpg"])
-      thumb.write(file.path)
+    file = Paperclip::Tempfile.new(["#{order_id}#{rand(36**20).to_s(36)}", ".jpg"])
+    thumb.write(file.path)
 
-      result = Result.create(image: file)
-      album.results << result
-    ensure
-      # cleanup
-      thumb.destroy!
-      image.destroy!
-      logo.destroy!
-    end
+    result = Result.create(image: file)
+    album.results << result
+
+    # cleanup
+    thumb.destroy!
+    image.destroy!
+    logo.destroy!
 
     order.update(status: :completed)
   end
