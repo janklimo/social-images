@@ -37,10 +37,11 @@ class OrderWorker
     album.results << result
 
     # cleanup
+    GC.start
+
     # caption.destroy!
     # image.destroy!
     # logo.destroy!
-    # GC.start
 
     order.update(status: :completed)
   end
