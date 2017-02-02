@@ -15,7 +15,6 @@ gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk', '~> 2.3.0'
 gem 'sidekiq'
 gem 'has_secure_token'
-gem "mini_magick"
 
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
