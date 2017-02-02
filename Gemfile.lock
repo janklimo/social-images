@@ -175,6 +175,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
+    mini_magick (4.6.0)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     momentjs-rails (2.15.1)
@@ -340,6 +341,7 @@ DEPENDENCIES
   jazz_fingers
   jquery-rails
   letter_opener
+  mini_magick
   paperclip (~> 5.0.0)
   pg
   pry-rails
