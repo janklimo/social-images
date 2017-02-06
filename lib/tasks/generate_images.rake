@@ -14,16 +14,19 @@ task generate_images: :environment do
 
   logo = Image.read(Dir[Rails.root.join('public/logo.*')].first).first
 
-  Dir[Rails.root.join('public/backgrounds/*')].each_with_index do |image, i|
+  backgrounds = Dir[Rails.root.join('public/backgrounds/landscape/*')].shuffle
+  quotes = Quote.order("RANDOM()").limit(backgrounds.size)
+
+  backgrounds.each_with_index do |image, i|
     puts "Generating Facebook image ##{i + 1}"
 
     image = Image.read(image).first
 
     image.resize_to_fill!(FACEBOOK_WIDTH, FACEBOOK_HEIGHT)
-    logo.resize_to_fit!(300, 300)
+    logo.resize_to_fit!(FACEBOOK_WIDTH*0.2, FACEBOOK_HEIGHT*0.09)
 
-    quote = "A person who never made a mistake never tried anything new"
-    caption = Image.read("caption:#{quote.upcase}") do
+    quote = quotes[i]
+    caption = Image.read("caption:#{quote.text.upcase}") do
       self.font = "#{Rails.root}/app/assets/fonts/futura.ttf"
       self.size = "#{FACEBOOK_WIDTH*0.45}x#{FACEBOOK_HEIGHT*0.4}"
       # no pointsize will choose the biggest pointsize possible to fit
@@ -32,7 +35,7 @@ task generate_images: :environment do
       self.fill = 'white'
     end.first
 
-    caption_shadow = Image.read("caption:#{quote.upcase}") do
+    caption_shadow = Image.read("caption:#{quote.text.upcase}") do
       self.font = "#{Rails.root}/app/assets/fonts/futura.ttf"
       self.size = "#{FACEBOOK_WIDTH*0.45}x#{FACEBOOK_HEIGHT*0.4}"
       self.gravity = CenterGravity
@@ -40,18 +43,18 @@ task generate_images: :environment do
       self.fill = 'black'
     end.first.gaussian_blur(0.0, 5.0)
 
-    author = Image.read("caption:Albert Einstein") do
+    author = Image.read("caption:#{quote.author}") do
       self.font = "#{Rails.root}/app/assets/fonts/pacifico.ttf"
       self.size = "#{FACEBOOK_WIDTH*0.35}x"
       self.pointsize = 44
       self.gravity = CenterGravity
-      self.stroke = 'white'
-      self.stroke_width = 1
+      # self.stroke = 'white'
+      # self.stroke_width = 1
       self.background_color = 'transparent'
-      self.fill = color
+      self.fill = '#E1ECF4'
     end.first
 
-    author_shadow = Image.read("caption:Albert Einstein") do
+    author_shadow = Image.read("caption:#{quote.author}") do
       self.font = "#{Rails.root}/app/assets/fonts/pacifico.ttf"
       self.size = "#{FACEBOOK_WIDTH*0.35}x"
       self.pointsize = 44
@@ -70,7 +73,7 @@ task generate_images: :environment do
     image.composite!(author_shadow, CenterGravity,
                      2, vertical_offset_author + 2, OverCompositeOp)
     image.composite!(author, CenterGravity, 0, vertical_offset_author, OverCompositeOp)
-    image.composite!(logo, SouthEastGravity, 20, 20, OverCompositeOp)
+    image.composite!(logo, SouthEastGravity, 20, 10, OverCompositeOp)
     path = "#{destination_folder}/#{i + 1}_facebook.jpg"
     image.write(path)
 
@@ -87,7 +90,7 @@ end
 
 def footer_for(image, logo)
   x0 = 0
-  y0 = image.rows - (logo.rows + 40)
+  y0 = image.rows - (logo.rows + 20)
   x1 = image.columns
   y1 = image.rows
 
