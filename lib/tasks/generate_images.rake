@@ -48,8 +48,6 @@ task generate_images: :environment do
       self.size = "#{FACEBOOK_WIDTH*0.35}x"
       self.pointsize = 44
       self.gravity = CenterGravity
-      # self.stroke = 'white'
-      # self.stroke_width = 1
       self.background_color = 'transparent'
       self.fill = '#E1ECF4'
     end.first

@@ -41,3 +41,9 @@ Quote.create(
   text: "Keep your face to the sunshine and you can never see the shadow.",
   author: "Helen Keller"
 )
+
+Quote.create(
+  category: :motivation,
+  text: "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+  author: "Aristotle"
+)
