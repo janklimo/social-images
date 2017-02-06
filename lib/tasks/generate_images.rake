@@ -46,7 +46,7 @@ task generate_images: :environment do
 
       author = Image.read("caption:#{quote.author}") do
         self.font = "#{Rails.root}/app/assets/fonts/pacifico.ttf"
-        self.size = "#{width*0.45}x"
+        self.size = "#{width*0.55}x"
         self.pointsize = 44
         self.gravity = CenterGravity
         self.background_color = 'transparent'
@@ -55,7 +55,7 @@ task generate_images: :environment do
 
       author_shadow = Image.read("caption:#{quote.author}") do
         self.font = "#{Rails.root}/app/assets/fonts/pacifico.ttf"
-        self.size = "#{width*0.45}x"
+        self.size = "#{width*0.55}x"
         self.pointsize = 44
         self.gravity = CenterGravity
         self.background_color = 'transparent'
