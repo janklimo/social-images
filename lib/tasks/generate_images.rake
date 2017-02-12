@@ -9,9 +9,10 @@ task generate_images: :environment do
   destination_folder = "#{dropbox_folder}/#{Time.now.strftime("%Y%m%d")}_#{name}"
   Dir.mkdir(destination_folder) unless File.directory?(destination_folder)
 
+  IMAGES_COUNT = 100
 
   backgrounds = Dir[Rails.root.join('public/backgrounds/landscape/*')]
-    .shuffle.take(99)
+    .shuffle.take(IMAGES_COUNT)
   quotes = Quote.order("RANDOM()").limit(backgrounds.size)
 
   backgrounds.each_with_index do |image_path, i|

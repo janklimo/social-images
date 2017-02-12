@@ -906,3 +906,75 @@ Quote.create(
   author: "Alan Cohen"
 )
 
+Quote.create(
+  category: :motivation,
+  text: "Opportunity does not knock, it presents itself when you beat down the door.",
+  author: "Kyle Chandler"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "We have to continually be jumping off cliffs and developing our wings on the way down.",
+  author: "Kurt Vonnegut"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Can anything be sadder than work left unfinished? Yes, work never begun.",
+  author: "Christina Rossetti"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Sometimes painful things can teach us lessons that we didn't think we needed to know.",
+  author: "Amy Poehler"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "The scariest moment is always just before you start.",
+  author: "Stephen King"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "It is better to be hated for what you are than loved for what you are not.",
+  author: "Andre Gide"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Stay positive, all other choices are pointless punishments to your psyche.",
+  author: "Joe Peterson"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Big jobs usually go to the men who prove their ability to outgrow small ones.",
+  author: "Ralph Emerson"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "If you want to make an easy job seem mighty hard, just keep putting off doing it.",
+  author: "David Allen"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "An expert is a person who has made all the mistakes that can be made in a very narrow field.",
+  author: "Niels Bohr"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Happiness depends upon ourselves.",
+  author: "Aristotle"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Stay committed to your decisions, but stay flexible in your approach.",
+  author: "Tony Robbins"
+)
+
