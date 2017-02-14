@@ -978,3 +978,9 @@ Quote.create(
   author: "Tony Robbins"
 )
 
+Quote.create(
+  category: :motivation,
+  text: "How wonderful it is that nobody need wait a single moment before starting to improve the world.",
+  author: "Anne Frank"
+)
+
