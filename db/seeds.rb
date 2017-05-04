@@ -984,3 +984,80 @@ Quote.create(
   author: "Anne Frank"
 )
 
+Quote.create(
+  category: :motivation,
+  text: "Remember that sometimes not getting what you want is a wonderful stroke of luck.",
+  author: "Dalai Lama"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "You will get all you want in life if you help enough other people get what they want.",
+  author: "Zig Ziglar"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "It doesn’t matter what other people say about your future – you decide it.",
+  author: "Gary Vaynerchuck"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Skills are cheap, passion is priceless.",
+  author: "Gary Vaynerchuck"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "The journey is everything.",
+  author: "Gary Vaynerchuck"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Complaining is a zero return investment.",
+  author: "Gary Vaynerchuck"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Opportunity is free. Take it.",
+  author: "Gary Vaynerchuck"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "There are a million reasons why not but there is one great reason why.",
+  author: "Gary Vaynerchuck"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Marathon runners don't win sprints.",
+  author: "Gary Vaynerchuck"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "You can't live your life based on other people's point of view.",
+  author: "Gary Vaynerchuck"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "You're better off trying and losing than never trying at all.",
+  author: "Gary Vaynerchuck"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Stop worrying about what you're not and start focusing on what you are.",
+  author: "Gary Vaynerchuck"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "We only get to play this game one time. One life.",
+  author: "Gary Vaynerchuck"
+)

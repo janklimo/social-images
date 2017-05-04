@@ -4,12 +4,12 @@ include Magick
 task generate_images: :environment do
   dropbox_folder = "/Users/Admin/Dropbox/generated-images"
   name = ENV.fetch('NAME')
-  # color = ENV.fetch('COLOR')
+  brand = ENV['BRAND']
 
   destination_folder = "#{dropbox_folder}/#{Time.now.strftime("%Y%m%d")}_#{name}"
   Dir.mkdir(destination_folder) unless File.directory?(destination_folder)
 
-  IMAGES_COUNT = 100
+  IMAGES_COUNT = 5
 
   backgrounds = Dir[Rails.root.join('public/backgrounds/landscape/*')]
     .shuffle.take(IMAGES_COUNT)
@@ -23,7 +23,6 @@ task generate_images: :environment do
 
       image = Image.read(image_path).first
       logo = Image.read(Dir[Rails.root.join('public/logo.*')].first).first
-
       image.resize_to_fill!(width, height)
       logo.resize_to_fit!(width*0.2, height*0.09)
 
@@ -73,7 +72,20 @@ task generate_images: :environment do
       image.composite!(author_shadow, CenterGravity,
                        2, vertical_offset_author + 2, OverCompositeOp)
       image.composite!(author, CenterGravity, 0, vertical_offset_author, OverCompositeOp)
+
+      # logo with website name
+      brand_caption = Image.read("caption:#{brand.upcase}") do
+        self.font = "#{Rails.root}/app/assets/fonts/futura.ttf"
+        self.size = "#{width*0.3}x#{height*0.06}"
+        self.gravity = EastGravity
+        self.background_color = 'transparent'
+        self.fill = '#2d2d2d'
+      end.first
+      image.composite!(brand_caption, SouthEastGravity, 135, 14, OverCompositeOp)
+      brand_caption.destroy!
+
       image.composite!(logo, SouthEastGravity, 20, 10, OverCompositeOp)
+
       path = "#{destination_folder}/#{i + 1}_#{platform}.jpg"
       image.write(path)
 
@@ -101,8 +113,8 @@ def footer_for(image, logo)
 end
 
 def platforms
-  facebook = ENV.fetch('FACEBOOK')
-  twitter = ENV.fetch('TWITTER')
+  facebook = ENV['FACEBOOK']
+  twitter = ENV['TWITTER']
   [].tap do |platforms|
     platforms << :facebook if facebook
     platforms << :twitter if twitter
