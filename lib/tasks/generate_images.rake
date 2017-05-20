@@ -9,7 +9,7 @@ task generate_images: :environment do
   destination_folder = "#{dropbox_folder}/#{Time.now.strftime("%Y%m%d")}_#{name}"
   Dir.mkdir(destination_folder) unless File.directory?(destination_folder)
 
-  IMAGES_COUNT = 5
+  IMAGES_COUNT = 100
 
   backgrounds = Dir[Rails.root.join('public/backgrounds/landscape/*')]
     .shuffle.take(IMAGES_COUNT)
@@ -81,10 +81,12 @@ task generate_images: :environment do
         self.background_color = 'transparent'
         self.fill = '#2d2d2d'
       end.first
-      image.composite!(brand_caption, SouthEastGravity, 135, 14, OverCompositeOp)
+      # make this 20 -> 135 if we add logo and brand
+      image.composite!(brand_caption, SouthEastGravity, 20, 14, OverCompositeOp)
       brand_caption.destroy!
 
-      image.composite!(logo, SouthEastGravity, 20, 10, OverCompositeOp)
+      # no logo
+      # image.composite!(logo, SouthEastGravity, 20, 10, OverCompositeOp)
 
       path = "#{destination_folder}/#{i + 1}_#{platform}.jpg"
       image.write(path)
