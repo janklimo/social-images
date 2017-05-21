@@ -9,11 +9,11 @@ task generate_images: :environment do
   destination_folder = "#{dropbox_folder}/#{Time.now.strftime("%Y%m%d")}_#{name}"
   Dir.mkdir(destination_folder) unless File.directory?(destination_folder)
 
-  IMAGES_COUNT = 100
+  IMAGES_COUNT = ENV.fetch('LIMIT').to_i
 
   backgrounds = Dir[Rails.root.join('public/backgrounds/landscape/*')]
     .shuffle.take(IMAGES_COUNT)
-  quotes = Quote.order("RANDOM()").limit(backgrounds.size)
+  quotes = Quote.order("RANDOM()").limit(IMAGES_COUNT)
 
   backgrounds.each_with_index do |image_path, i|
     platforms.each do |platform|
@@ -73,20 +73,28 @@ task generate_images: :environment do
                        2, vertical_offset_author + 2, OverCompositeOp)
       image.composite!(author, CenterGravity, 0, vertical_offset_author, OverCompositeOp)
 
-      # logo with website name
-      brand_caption = Image.read("caption:#{brand.upcase}") do
-        self.font = "#{Rails.root}/app/assets/fonts/futura.ttf"
-        self.size = "#{width*0.3}x#{height*0.06}"
-        self.gravity = EastGravity
-        self.background_color = 'transparent'
-        self.fill = '#2d2d2d'
-      end.first
-      # make this 20 -> 135 if we add logo and brand
-      image.composite!(brand_caption, SouthEastGravity, 20, 14, OverCompositeOp)
-      brand_caption.destroy!
+      if brand
+        brand_caption = Image.read("caption:#{brand.upcase}") do
+          self.font = "#{Rails.root}/app/assets/fonts/futura.ttf"
+          self.size = "#{width*0.3}x#{height*0.06}"
+          self.gravity = EastGravity
+          self.background_color = 'transparent'
+          self.fill = '#2d2d2d'
+        end.first
 
-      # no logo
-      # image.composite!(logo, SouthEastGravity, 20, 10, OverCompositeOp)
+        if ENV['LOGO']
+          brand_offset = 135
+        else
+          brand_offset = 20
+        end
+
+        image.composite!(brand_caption, SouthEastGravity, brand_offset, 14, OverCompositeOp)
+        brand_caption.destroy!
+      end
+
+      if ENV['LOGO']
+        image.composite!(logo, SouthEastGravity, 20, 10, OverCompositeOp)
+      end
 
       path = "#{destination_folder}/#{i + 1}_#{platform}.jpg"
       image.write(path)

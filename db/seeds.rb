@@ -1061,3 +1061,225 @@ Quote.create(
   text: "We only get to play this game one time. One life.",
   author: "Gary Vaynerchuck"
 )
+
+Quote.create(
+  category: :motivation,
+  text: "It always seems impossible until it's done.",
+  author: "Nelson Mandela"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "You can't cross the sea merely by standing and staring at the water.",
+  author: "Rabindranath Tagore"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "The secret of getting ahead is getting started.",
+  author: "Mark Twain"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Don't watch the clock; do what it does. Keep going.",
+  author: "Sam Levenson"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "What you get by achieving your goals is not as important as what you become by achieving your goals.",
+  author: "Zig Ziglar"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Start where you are. Use what you have. Do what you can.",
+  author: "Arthur Ashe"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Expect problems and eat them for breakfast.",
+  author: "Alfred A. Montapert"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Ever tried. Ever failed. No matter. Try again. Fail again. Fail better.",
+  author: "Samuel Beckett"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "No bird soars too high if he soars with his own wings.",
+  author: "William Blake"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "A goal is a dream with a deadline.",
+  author: "Napoleon Hill"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Act as if what you do makes a difference. It does.",
+  author: "William James"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Do not wait to strike till the iron is hot; but make it hot by striking.",
+  author: "William Butler Yeats"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Either I will find a way, or I will make one.",
+  author: "Philip Sidney"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Small deeds done are better than great deeds planned.",
+  author: "Peter Marshall"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Every exit is an entry somewhere else.",
+  author: "Tom Stoppard"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "One finds limits by pushing them.",
+  author: "Herbert Simon"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "There is always room at the top.",
+  author: "Daniel Webster"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Begin to be now what you will be hereafter.",
+  author: "William James"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "The dog that trots about finds a bone.",
+  author: "Golda Meir"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "I can't change the direction of the wind, but I can adjust my sails to always reach my destination.",
+  author: "Jimmy Dean"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Give light and people will find the way.",
+  author: "Ella Baker"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Keep your face always toward the sunshine - and shadows will fall behind you.",
+  author: "Walt Whitman"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Perfection is not attainable, but if we chase perfection we can catch excellence.",
+  author: "Vince Lombardi"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Your present circumstances don't determine where you can go; they merely determine where you start.",
+  author: "Nido Qubein"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "If you cannot do great things, do small things in a great way.",
+  author: "Napoleon Hill"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "There are no limitations to the mind except those we acknowledge.",
+  author: "Napoleon Hill"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Fears are nothing more than a state of mind.",
+  author: "Napoleon Hill"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "The man who does more than he is paid for will soon be paid for more than he does.",
+  author: "Napoleon Hill"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "We can chanage our lives. We can do, have, and be exactly what we wish.",
+  author: "Tony Robbins"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Always do your best. What you plant now, you will harvest later.",
+  author: "Og Mandino"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "When we seek to discover the best in others, we somehow bring out the best in ourselves.",
+  author: "William Arthur Ward"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "The best way to predict the future is to create it.",
+  author: "Peter Drucker"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Be kind whenever possible. It is always possible.",
+  author: "Dalai Lama"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+  author: "Winston Churchill"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "Be happy for this moment. This moment is your life.",
+  author: "Omar Khayyam"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "But man is not made for defeat. A man can be destroyed but not defeated.",
+  author: "Ernest Hemingway"
+)
+
+Quote.create(
+  category: :motivation,
+  text: "If you learn from defeat, you haven't really lost.",
+  author: "Zig Ziglar"
+)
